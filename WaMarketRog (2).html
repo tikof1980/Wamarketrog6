@@ -1,0 +1,1433 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="theme-color" content="#1DB954">
+<title>WaMarketRog – Marketplace N°1 en Côte d'Ivoire</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+/*───────────────────────── RESET & VARIABLES ─────────────────────────*/
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --g1:#1DB954; --g2:#00A878; --g3:#007A57;
+  --white:#FFFFFF; --offwhite:#F4FBF7;
+  --gold:#FFD93D; --orange:#FF6B35; --red:#E53E3E;
+  --dark:#1A202C; --mid:#4A5568; --light:#E2E8F0;
+  --gr-green:linear-gradient(135deg,#1DB954 0%,#00A878 100%);
+  --gr-dark:linear-gradient(135deg,#1A202C 0%,#2D3748 100%);
+  --gr-gold:linear-gradient(135deg,#FFD93D 0%,#FF6B35 100%);
+  --gr-sky:linear-gradient(135deg,#4facfe 0%,#00f2fe 100%);
+  --gr-pink:linear-gradient(135deg,#f093fb 0%,#f5576c 100%);
+  --gr-teal:linear-gradient(135deg,#43e97b 0%,#38f9d7 100%);
+  --shadow:0 8px 30px rgba(29,185,84,0.15);
+  --font:'Poppins',sans-serif; --body:'Nunito',sans-serif;
+}
+body{background:var(--offwhite);color:var(--dark);font-family:var(--body);min-height:100vh;overflow-x:hidden;}
+a{text-decoration:none;}
+
+/*───────────────────────── SCROLLBAR ─────────────────────────*/
+::-webkit-scrollbar{width:6px;}
+::-webkit-scrollbar-track{background:#f0f0f0;}
+::-webkit-scrollbar-thumb{background:var(--g1);border-radius:4px;}
+
+/*───────────────────────── HEADER ─────────────────────────*/
+.header{background:var(--gr-green);position:sticky;top:0;z-index:1000;box-shadow:0 4px 20px rgba(29,185,84,0.35);}
+.hinner{max-width:1300px;margin:auto;padding:14px 20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;}
+.logo{display:flex;align-items:center;gap:10px;}
+.logo h1{font-family:var(--font);font-size:1.7em;color:white;font-weight:900;letter-spacing:-0.5px;}
+.logo h1 span{color:var(--gold);}
+.logo-badge{background:var(--gold);color:var(--dark);font-size:0.55em;padding:3px 8px;border-radius:20px;font-weight:800;vertical-align:middle;}
+nav{display:flex;gap:6px;flex-wrap:wrap;align-items:center;}
+nav a{color:white;padding:8px 14px;border-radius:20px;font-weight:600;font-size:0.85em;transition:0.3s;display:flex;align-items:center;gap:5px;}
+nav a:hover{background:rgba(255,255,255,0.2);transform:translateY(-2px);}
+.btn-wa-nav{background:#25D366 !important;box-shadow:0 4px 12px rgba(37,211,102,0.4);}
+.btn-admin-nav{background:rgba(0,0,0,0.35) !important;}
+.btn-deposit-nav{background:var(--gold) !important;color:var(--dark) !important;font-weight:800 !important;}
+.btn-geo-nav{background:rgba(255,255,255,0.2) !important;border:2px solid rgba(255,255,255,0.5) !important;}
+
+/*───────────────────────── HERO ─────────────────────────*/
+.hero{background:var(--gr-dark);color:white;padding:80px 20px 60px;text-align:center;position:relative;overflow:hidden;}
+.hero-bg{position:absolute;inset:0;background:url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><circle cx="30" cy="30" r="60" fill="%231DB95420"/><circle cx="170" cy="170" r="80" fill="%2300A87815"/><circle cx="160" cy="30" r="40" fill="%23FFD93D12"/></svg>') center/cover;animation:bgmove 15s infinite alternate;}
+@keyframes bgmove{0%{transform:scale(1);}100%{transform:scale(1.08);}}
+.hero-content{position:relative;z-index:2;}
+.hero-badge{display:inline-block;background:var(--gr-green);color:white;padding:6px 20px;border-radius:30px;font-size:0.9em;font-weight:700;margin-bottom:18px;box-shadow:0 4px 15px rgba(29,185,84,0.4);}
+.hero h2{font-family:var(--font);font-size:2.8em;font-weight:900;line-height:1.2;margin-bottom:18px;}
+.hero h2 .hi{color:var(--gold);}
+.hero p{font-size:1.15em;opacity:0.88;max-width:600px;margin:0 auto 32px;}
+.hero-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+.btn-hero{padding:15px 34px;border-radius:40px;font-weight:800;font-size:1.05em;transition:0.35s;display:inline-flex;align-items:center;gap:8px;border:none;cursor:pointer;}
+.btn-hero.green{background:var(--gr-green);color:white;box-shadow:0 6px 25px rgba(29,185,84,0.45);}
+.btn-hero.gold{background:var(--gr-gold);color:var(--dark);box-shadow:0 6px 25px rgba(255,217,61,0.4);}
+.btn-hero:hover{transform:translateY(-4px) scale(1.04);}
+.hero-stats{display:flex;gap:30px;justify-content:center;margin-top:45px;flex-wrap:wrap;}
+.stat-box{text-align:center;background:rgba(255,255,255,0.08);padding:15px 25px;border-radius:14px;backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.12);}
+.stat-box .num{font-family:var(--font);font-size:2em;font-weight:900;color:var(--gold);}
+.stat-box .lbl{font-size:0.8em;opacity:0.8;}
+
+/*───────────────────────── SECTION TITLE ─────────────────────────*/
+.section-title{text-align:center;font-family:var(--font);font-size:2em;margin:45px 0 28px;font-weight:900;position:relative;}
+.section-title::after{content:'';display:block;width:60px;height:5px;background:var(--gr-green);border-radius:4px;margin:10px auto 0;}
+.section-title .sub{font-size:0.5em;font-weight:600;color:var(--mid);display:block;margin-top:5px;font-family:var(--body);}
+
+/*───────────────────────── PRODUITS ─────────────────────────*/
+.products-section{max-width:1280px;margin:auto;padding:30px 20px;}
+.filters{display:flex;gap:12px;margin-bottom:28px;flex-wrap:wrap;}
+.filters input,.filters select{padding:12px 18px;border:2px solid var(--light);border-radius:25px;flex:1;min-width:180px;background:white;font-size:0.95em;outline:none;transition:0.3s;font-family:var(--body);}
+.filters input:focus,.filters select:focus{border-color:var(--g1);box-shadow:0 0 0 4px rgba(29,185,84,0.15);}
+.products-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:28px;}
+.product-card{background:white;border-radius:22px;overflow:hidden;box-shadow:0 8px 28px rgba(0,0,0,0.09);transition:0.4s;position:relative;display:flex;flex-direction:column;}
+.product-card:hover{transform:translateY(-10px);box-shadow:0 22px 50px rgba(29,185,84,0.2);}
+.product-card img{width:100%;height:280px;object-fit:cover;object-position:center;transition:0.5s;display:block;}
+.product-card:hover img{transform:scale(1.06);}
+.img-wrap{overflow:hidden;background:#f0f0f0;min-height:280px;display:flex;align-items:center;justify-content:center;}
+.product-info{padding:20px;}
+.product-info h3{font-family:var(--font);color:var(--dark);margin-bottom:6px;font-size:1.15em;font-weight:700;}
+.product-info p{color:var(--mid);font-size:0.88em;margin-bottom:10px;line-height:1.5;}
+.product-price{font-family:var(--font);font-size:1.65em;font-weight:900;background:var(--gr-green);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin:8px 0;}
+.product-seller{color:#888;font-size:0.8em;margin-bottom:12px;display:flex;align-items:center;gap:5px;}
+.product-seller i{color:var(--g1);}
+.btn-buy{display:flex;align-items:center;justify-content:center;gap:7px;background:var(--gr-green);color:white;padding:12px;text-align:center;border-radius:12px;font-weight:700;transition:0.3s;font-size:0.95em;}
+.btn-buy:hover{background:var(--gr-gold);color:var(--dark);transform:scale(1.02);}
+.category-badge{position:absolute;top:14px;right:14px;background:var(--gold);color:var(--dark);padding:5px 12px;border-radius:15px;font-size:0.72em;font-weight:800;}
+.new-badge{position:absolute;top:14px;left:14px;background:var(--gr-green);color:white;padding:5px 12px;border-radius:15px;font-size:0.72em;font-weight:800;}
+.empty-state{grid-column:1/-1;text-align:center;padding:60px 20px;color:var(--mid);}
+.empty-state i{font-size:4em;color:var(--light);margin-bottom:15px;display:block;}
+.pending-banner{background:linear-gradient(135deg,#fff3cd,#ffe8a1);border:2px solid var(--gold);border-radius:12px;padding:12px 18px;margin-bottom:25px;display:flex;align-items:center;gap:10px;font-size:0.9em;font-weight:600;color:#856404;}
+
+/*───────────────────────── DÉPÔT PRODUIT ─────────────────────────*/
+.deposit-section{background:linear-gradient(135deg,#F0FFF4,#E6FFFA);padding:60px 20px;}
+.deposit-wrapper{max-width:800px;margin:auto;}
+.deposit-card{background:white;border-radius:24px;padding:40px;box-shadow:0 12px 40px rgba(29,185,84,0.12);border:2px solid rgba(29,185,84,0.1);}
+.deposit-card h2{font-family:var(--font);font-size:1.6em;font-weight:900;margin-bottom:8px;background:var(--gr-green);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.deposit-card .sub-desc{color:var(--mid);margin-bottom:28px;font-size:0.95em;line-height:1.6;}
+.pack-selector{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:12px;margin:20px 0;}
+.pack-opt{background:#f8f8f8;border:2.5px solid var(--light);border-radius:14px;padding:14px 10px;text-align:center;cursor:pointer;transition:0.3s;}
+.pack-opt:hover{border-color:var(--g1);background:#F0FFF4;}
+.pack-opt.selected{border-color:var(--g1);background:var(--gr-green);color:white;}
+.pack-opt.selected .pack-price{color:var(--gold);}
+.pack-opt .pack-icon{font-size:1.8em;margin-bottom:6px;}
+.pack-opt .pack-name{font-weight:800;font-size:0.85em;font-family:var(--font);}
+.pack-opt .pack-price{font-size:0.78em;font-weight:700;color:var(--g1);margin-top:3px;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+@media(max-width:600px){.form-row{grid-template-columns:1fr;}}
+.form-group{margin:12px 0;}
+.form-group label{display:block;margin-bottom:6px;font-weight:700;color:var(--dark);font-size:0.9em;}
+.form-group input,.form-group select,.form-group textarea{width:100%;padding:13px 16px;border:2px solid var(--light);border-radius:12px;font-size:0.95em;outline:none;transition:0.3s;font-family:var(--body);background:#fafafa;}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--g1);background:white;box-shadow:0 0 0 4px rgba(29,185,84,0.12);}
+.form-group textarea{min-height:100px;resize:vertical;}
+.image-zone{border:2.5px dashed var(--light);border-radius:14px;padding:25px;text-align:center;cursor:pointer;transition:0.3s;background:#fafafa;margin:12px 0;}
+.image-zone:hover{border-color:var(--g1);background:#F0FFF4;}
+.image-zone input[type=file]{display:none;}
+.image-zone .iz-icon{font-size:2.5em;color:var(--g1);margin-bottom:8px;}
+.image-zone .iz-text{color:var(--mid);font-size:0.9em;}
+.image-preview-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin-top:12px;}
+.image-preview-grid img{width:100%;height:150px;object-fit:cover;object-position:center;border-radius:12px;border:2px solid var(--light);}
+.btn-submit-deposit{width:100%;padding:16px;background:var(--gr-green);color:white;border:none;border-radius:16px;font-size:1.1em;font-weight:800;cursor:pointer;margin-top:20px;transition:0.35s;display:flex;align-items:center;justify-content:center;gap:10px;font-family:var(--font);}
+.btn-submit-deposit:hover{transform:translateY(-3px);box-shadow:0 8px 25px rgba(29,185,84,0.4);}
+.wa-notice{background:linear-gradient(135deg,#E8F5E9,#C8E6C9);border:2px solid #4CAF50;border-radius:12px;padding:14px 18px;margin-top:18px;font-size:0.88em;color:#2e7d32;font-weight:600;display:flex;align-items:flex-start;gap:10px;}
+.wa-notice i{font-size:1.3em;margin-top:2px;color:#25D366;}
+
+/*───────────────────────── TARIFS ─────────────────────────*/
+.pricing{padding:60px 20px;}
+.pricing-grid{max-width:1200px;margin:auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:20px;}
+.price-card{background:white;border-radius:22px;padding:30px 22px;text-align:center;position:relative;transition:0.4s;box-shadow:0 5px 22px rgba(0,0,0,0.07);overflow:hidden;border:2.5px solid transparent;}
+.price-card:hover{transform:translateY(-10px);border-color:var(--g1);}
+.price-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:6px;background:var(--gr-green);}
+.price-card:nth-child(2)::before{background:var(--gr-sky);}
+.price-card:nth-child(3)::before{background:var(--gr-gold);}
+.price-card:nth-child(4)::before{background:var(--gr-pink);}
+.price-card:nth-child(5)::before{background:var(--gr-teal);}
+.price-card.featured{background:var(--gr-dark);color:white;transform:scale(1.04);}
+.price-card.featured:hover{transform:scale(1.04) translateY(-10px);}
+.price-card h3{font-family:var(--font);font-weight:800;font-size:1.1em;margin:12px 0;}
+.price{font-family:var(--font);font-size:2.1em;font-weight:900;background:var(--gr-green);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin:12px 0;}
+.price-card.featured .price{background:none;-webkit-text-fill-color:var(--gold);}
+.price sup{font-size:0.45em;vertical-align:top;margin-top:8px;display:inline-block;}
+.price sub{font-size:0.38em;font-weight:600;}
+.price-badge{position:absolute;top:14px;right:-28px;background:var(--gold);color:var(--dark);padding:5px 36px;transform:rotate(45deg);font-size:0.7em;font-weight:900;}
+.price-card ul{list-style:none;text-align:left;margin:16px 0;}
+.price-card ul li{padding:5px 0;font-size:0.88em;display:flex;align-items:center;gap:8px;}
+.price-card ul li::before{content:'✅';font-size:0.8em;}
+.price-card.featured ul li{color:rgba(255,255,255,0.9);}
+.btn-pack{display:block;background:var(--gr-green);color:white;padding:12px;border-radius:25px;margin-top:16px;font-weight:800;transition:0.3s;font-size:0.9em;border:none;cursor:pointer;width:100%;}
+.btn-pack:hover{transform:scale(1.05);}
+.price-card.featured .btn-pack{background:var(--gold);color:var(--dark);}
+
+/*───────────────────────── FORMATIONS ─────────────────────────*/
+.formations-section{padding:60px 20px;background:linear-gradient(180deg,transparent,rgba(29,185,84,0.04));}
+.formations-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;}
+.formation-card{background:white;padding:28px 22px;border-radius:20px;text-align:center;box-shadow:0 5px 20px rgba(0,0,0,0.07);transition:0.4s;cursor:pointer;border:2px solid transparent;}
+.formation-card:hover{transform:translateY(-8px) scale(1.02);border-color:var(--g1);}
+.formation-card:nth-child(odd){background:var(--gr-green);color:white;}
+.formation-card:nth-child(3n){background:var(--gr-dark);color:white;}
+.formation-card:nth-child(4n){background:var(--gr-gold);color:var(--dark);}
+.formation-card i{font-size:2.8em;margin-bottom:14px;display:block;}
+.formation-card h3{font-family:var(--font);font-weight:800;margin-bottom:8px;}
+.formation-card p{font-size:0.88em;opacity:0.88;line-height:1.5;}
+.formation-card a{display:inline-block;margin-top:16px;background:rgba(255,255,255,0.25);color:inherit;padding:9px 20px;border-radius:25px;font-weight:700;backdrop-filter:blur(10px);transition:0.3s;}
+.formation-card:nth-child(even) a{background:var(--gr-green);color:white;}
+.formation-card a:hover{transform:scale(1.05);}
+
+/*───────────────────────── PAIEMENT ─────────────────────────*/
+.payment-section{padding:60px 20px;background:linear-gradient(135deg,#F0FFF4,#E6FFFA);}
+.payment-cards{max-width:850px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px;}
+.payment-card{background:white;padding:32px;border-radius:22px;text-align:center;box-shadow:0 10px 30px rgba(0,0,0,0.08);border:3px solid transparent;transition:0.35s;}
+.payment-card:hover{border-color:var(--g1);transform:translateY(-6px);}
+.pay-icon{font-size:4em;margin-bottom:14px;}
+.payment-card h3{font-family:var(--font);font-weight:800;margin-bottom:8px;color:var(--dark);}
+.payment-number{font-family:var(--font);font-size:1.6em;font-weight:900;background:var(--gr-green);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin:14px 0;letter-spacing:2px;}
+.copy-btn{background:var(--gr-green);color:white;border:none;padding:11px 26px;border-radius:25px;cursor:pointer;font-weight:800;transition:0.3s;font-family:var(--body);}
+.copy-btn:hover{transform:scale(1.06);}
+.copy-btn:active{transform:scale(0.97);}
+
+/*───────────────────────── AGENT IA ─────────────────────────*/
+.ai-agent{position:fixed;bottom:24px;right:24px;z-index:9999;}
+.ai-bubble{width:68px;height:68px;background:var(--gr-green);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 10px 30px rgba(29,185,84,0.55);position:relative;transition:0.3s;flex-direction:column;}
+.ai-bubble:hover{transform:scale(1.12) rotate(8deg);}
+.ai-bubble i{color:white;font-size:1.8em;}
+.ai-bubble span{color:white;font-size:0.52em;font-weight:700;margin-top:2px;}
+.ai-pulse{position:absolute;width:100%;height:100%;border-radius:50%;background:rgba(29,185,84,0.4);animation:pulse 2s infinite;}
+@keyframes pulse{0%{transform:scale(1);opacity:1;}100%{transform:scale(1.7);opacity:0;}}
+.ai-chat{display:none;position:fixed;bottom:106px;right:24px;width:360px;max-width:calc(100vw - 48px);height:510px;max-height:calc(100vh - 150px);background:white;border-radius:22px;box-shadow:0 24px 70px rgba(0,0,0,0.25);flex-direction:column;overflow:hidden;}
+.ai-chat.active{display:flex;animation:slideUp 0.3s ease;}
+@keyframes slideUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
+.ai-header{background:var(--gr-green);color:white;padding:16px 18px;display:flex;justify-content:space-between;align-items:center;gap:10px;}
+.ai-header-info{display:flex;align-items:center;gap:10px;}
+.ai-avatar{width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,0.25);display:flex;align-items:center;justify-content:center;font-size:1.4em;}
+.ai-header h3{font-family:var(--font);font-size:0.95em;font-weight:800;}
+.ai-header p{font-size:0.72em;opacity:0.88;}
+.ai-header-btns{display:flex;gap:6px;}
+.ai-header-btns button{background:rgba(255,255,255,0.2);border:none;color:white;width:32px;height:32px;border-radius:50%;cursor:pointer;transition:0.2s;font-size:0.9em;}
+.ai-header-btns button:hover{background:rgba(255,255,255,0.35);}
+.ai-messages{flex:1;padding:16px;overflow-y:auto;background:#F4FBF7;display:flex;flex-direction:column;gap:10px;}
+.ai-msg{padding:12px 16px;border-radius:18px;max-width:82%;font-size:0.88em;word-wrap:break-word;line-height:1.5;animation:msgIn 0.25s ease;}
+@keyframes msgIn{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
+.ai-msg.bot{background:white;box-shadow:0 2px 8px rgba(0,0,0,0.07);align-self:flex-start;border-radius:4px 18px 18px 18px;}
+.ai-msg.user{background:var(--gr-green);color:white;align-self:flex-end;border-radius:18px 18px 4px 18px;}
+.ai-typing{padding:12px 16px;border-radius:18px;background:white;box-shadow:0 2px 8px rgba(0,0,0,0.07);display:flex;align-items:center;gap:6px;width:fit-content;}
+.ai-typing span{width:8px;height:8px;border-radius:50%;background:var(--g1);animation:dot 1.4s infinite;}
+.ai-typing span:nth-child(2){animation-delay:0.2s;}
+.ai-typing span:nth-child(3){animation-delay:0.4s;}
+@keyframes dot{0%,80%,100%{transform:scale(0.7);opacity:0.5;}40%{transform:scale(1);opacity:1;}}
+.ai-input{display:flex;padding:10px;border-top:2px solid #eee;gap:6px;background:white;}
+.ai-input input{flex:1;padding:10px 15px;border:2px solid var(--light);border-radius:25px;outline:none;font-size:0.88em;font-family:var(--body);}
+.ai-input input:focus{border-color:var(--g1);}
+.ai-input button{background:var(--gr-green);color:white;border:none;width:42px;height:42px;border-radius:50%;cursor:pointer;flex-shrink:0;transition:0.2s;font-size:0.95em;}
+.ai-input button:hover{transform:scale(1.1);}
+.ai-input button.recording{background:red;animation:pulse 0.8s infinite;}
+.ai-quick{display:flex;gap:6px;flex-wrap:wrap;padding:8px 12px;background:white;border-top:1px solid #eee;}
+.ai-quick button{background:#F0FFF4;border:1.5px solid var(--light);color:var(--dark);padding:6px 12px;border-radius:20px;font-size:0.75em;cursor:pointer;transition:0.2s;font-family:var(--body);}
+.ai-quick button:hover{background:var(--g1);color:white;border-color:var(--g1);}
+
+/*───────────────────────── MODALS ─────────────────────────*/
+.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.65);z-index:10000;justify-content:center;align-items:center;padding:20px;overflow-y:auto;backdrop-filter:blur(4px);}
+.modal.active{display:flex;}
+.modal-content{background:white;border-radius:22px;padding:32px;max-width:500px;width:100%;max-height:90vh;overflow-y:auto;position:relative;animation:slideUp 0.3s ease;box-shadow:0 24px 70px rgba(0,0,0,0.25);}
+.modal-content h2{font-family:var(--font);font-weight:900;margin-bottom:20px;background:var(--gr-green);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.modal-close{position:absolute;top:16px;right:16px;background:#eee;border:none;width:36px;height:36px;border-radius:50%;cursor:pointer;font-size:1.1em;transition:0.2s;}
+.modal-close:hover{background:var(--light);}
+.btn-submit{width:100%;padding:15px;background:var(--gr-green);color:white;border:none;border-radius:16px;font-size:1.05em;font-weight:800;cursor:pointer;margin-top:16px;transition:0.3s;font-family:var(--font);}
+.btn-submit:hover{transform:scale(1.02);}
+
+/*───────────────────────── ADMIN ─────────────────────────*/
+.admin-panel{max-width:1200px;margin:30px auto;padding:0 20px;}
+.admin-card{background:white;padding:26px;border-radius:20px;margin:18px 0;box-shadow:0 5px 22px rgba(0,0,0,0.07);}
+.admin-card h2{font-family:var(--font);font-weight:900;background:var(--gr-green);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:18px;}
+.admin-tabs{display:flex;gap:10px;margin-bottom:20px;flex-wrap:wrap;}
+.admin-tab{padding:10px 20px;border-radius:25px;border:2.5px solid var(--light);background:white;cursor:pointer;font-weight:700;font-size:0.9em;transition:0.2s;}
+.admin-tab.active,.admin-tab:hover{background:var(--gr-green);color:white;border-color:var(--g1);}
+.admin-product-item{border:1.5px solid #eee;padding:14px;margin:10px 0;border-radius:12px;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;transition:0.2s;}
+.admin-product-item:hover{border-color:var(--g1);}
+.admin-product-item img{width:60px;height:60px;object-fit:cover;border-radius:10px;}
+.admin-product-info{flex:1;min-width:150px;}
+.admin-product-info h4{font-weight:700;font-size:0.95em;}
+.admin-product-info p{color:var(--mid);font-size:0.82em;}
+.admin-actions{display:flex;gap:8px;}
+.btn-approve{background:var(--gr-green);color:white;border:none;padding:8px 14px;border-radius:8px;cursor:pointer;font-weight:700;font-size:0.85em;}
+.btn-delete{background:var(--red);color:white;border:none;padding:8px 14px;border-radius:8px;cursor:pointer;font-weight:700;font-size:0.85em;}
+.pending-tag{background:linear-gradient(135deg,#fff3cd,#ffe8a1);color:#856404;padding:3px 10px;border-radius:10px;font-size:0.78em;font-weight:700;}
+.approved-tag{background:linear-gradient(135deg,#d4edda,#b8dfc1);color:#155724;padding:3px 10px;border-radius:10px;font-size:0.78em;font-weight:700;}
+
+/*───────────────────────── TOAST ─────────────────────────*/
+.toast{position:fixed;top:84px;right:24px;background:var(--gr-green);color:white;padding:14px 24px;border-radius:14px;box-shadow:0 8px 24px rgba(0,0,0,0.18);z-index:10001;transform:translateX(420px);transition:0.4s cubic-bezier(0.34,1.56,0.64,1);font-weight:700;display:flex;align-items:center;gap:8px;max-width:320px;}
+.toast.show{transform:translateX(0);}
+.toast.error{background:linear-gradient(135deg,#ff416c,#ff4b2b);}
+.toast.warn{background:var(--gr-gold);color:var(--dark);}
+
+/*───────────────────────── FOOTER ─────────────────────────*/
+footer{background:var(--gr-dark);color:white;padding:50px 20px 24px;margin-top:50px;}
+.footer-inner{max-width:1200px;margin:auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:32px;}
+footer h3{color:var(--gold);margin-bottom:14px;font-family:var(--font);font-size:1.05em;}
+footer a{color:rgba(255,255,255,0.85);display:block;text-decoration:none;margin:6px 0;font-size:0.9em;transition:0.2s;}
+footer a:hover{color:var(--g1);}
+.footer-brand p{color:rgba(255,255,255,0.75);font-size:0.88em;line-height:1.6;margin-top:8px;}
+.social-links{display:flex;gap:10px;margin-top:14px;}
+.social-links a{display:flex;align-items:center;justify-content:center;width:38px;height:38px;background:rgba(255,255,255,0.1);border-radius:50%;font-size:1.1em;color:white;transition:0.3s;}
+.social-links a:hover{background:var(--g1);transform:translateY(-3px);}
+.copyright{text-align:center;margin-top:32px;padding-top:22px;border-top:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.65);font-size:0.85em;}
+
+/*───────────────────────── RESPONSIVE ─────────────────────────*/
+@media(max-width:768px){
+  .hero h2{font-size:1.9em;}
+  .hero p{font-size:1em;}
+  nav a{font-size:0.78em;padding:6px 10px;}
+  .logo h1{font-size:1.35em;}
+  .section-title{font-size:1.65em;}
+  .ai-chat{width:calc(100vw - 40px);right:20px;}
+  .pack-selector{grid-template-columns:repeat(2,1fr);}
+  .price-card.featured{transform:scale(1);}
+}
+@media(max-width:480px){
+  .hinner{flex-direction:column;}
+  .hero h2{font-size:1.55em;}
+  .hero-btns{flex-direction:column;align-items:center;}
+  .hero-stats{gap:12px;}
+  .stat-box{padding:12px 18px;}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════ HEADER ═══════════════════════ -->
+<header class="header">
+  <div class="hinner">
+    <div class="logo">
+      <h1>🛍️ WaMarket<span>Rog</span> <span class="logo-badge">N°1</span></h1>
+    </div>
+    <nav>
+      <a href="#accueil"><i class="fas fa-home"></i> Accueil</a>
+      <a href="#produits"><i class="fas fa-store"></i> Produits</a>
+      <a href="#deposer"><i class="fas fa-plus-circle"></i> Déposer</a>
+      <a href="#formations"><i class="fas fa-graduation-cap"></i> Formations</a>
+      <a href="#" onclick="openModal('validateModal');return false;" style="background:var(--gold)!important;color:var(--dark)!important;font-weight:800!important;"><i class="fas fa-check-circle"></i> Valider produit</a>
+      <a href="#" onclick="openModal('inscriptionModal');return false;"><i class="fas fa-user-plus"></i> S'inscrire</a>
+      <a href="#" onclick="openGeoModal();return false;" class="btn-geo-nav"><i class="fas fa-map-marker-alt"></i> Nous trouver</a>
+      <a href="#" onclick="openModal('adminLoginModal');return false;" class="btn-admin-nav"><i class="fas fa-lock"></i> Admin</a>
+      <a href="https://wa.me/2250170292408" target="_blank" class="btn-wa-nav"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ═══════════════════════ HERO ═══════════════════════ -->
+<section class="hero" id="accueil">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-badge">🌍 Côte d'Ivoire N°1 Marketplace</div>
+    <h2>Vendez vos produits avec <span class="hi">WaMarketRog</span> 🚀</h2>
+    <p>Déposez vos produits en quelques minutes. Nous faisons la promotion pour vous !</p>
+    <div class="hero-btns">
+      <button class="btn-hero green" onclick="document.getElementById('deposer').scrollIntoView({behavior:'smooth'})">
+        <i class="fas fa-plus-circle"></i> Déposer mon produit
+      </button>
+      <a href="#tarifs" class="btn-hero gold">
+        <i class="fas fa-tags"></i> Voir les tarifs
+      </a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-box"><div class="num" id="statProduits">0</div><div class="lbl">Produits en ligne</div></div>
+      <div class="stat-box"><div class="num">500+</div><div class="lbl">Vendeurs actifs</div></div>
+      <div class="stat-box"><div class="num">98%</div><div class="lbl">Clients satisfaits</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ PRODUITS ═══════════════════════ -->
+<section class="products-section" id="produits">
+  <h2 class="section-title">🛒 Nos Produits <span class="sub">Découvrez les meilleures offres</span></h2>
+  <div class="filters">
+    <input type="text" id="searchInput" placeholder="🔍 Rechercher un produit..." oninput="filterProducts()">
+    <select id="categoryFilter" onchange="filterProducts()">
+      <option value="">Toutes catégories</option>
+      <option value="mode">👗 Mode</option>
+      <option value="tech">💻 Tech</option>
+      <option value="beaute">💄 Beauté</option>
+      <option value="alimentation">🍎 Alimentation</option>
+      <option value="maison">🏠 Maison</option>
+      <option value="autre">📦 Autre</option>
+    </select>
+  </div>
+  <div id="productsGrid" class="products-grid"></div>
+</section>
+
+<!-- ═══════════════════════ DÉPÔT PRODUIT ═══════════════════════ -->
+<section class="deposit-section" id="deposer">
+  <div class="deposit-wrapper">
+    <h2 class="section-title" style="-webkit-text-fill-color:unset;background:none;color:var(--g1);">📦 Déposer un Produit <span class="sub" style="color:var(--mid);">Choisissez votre pack et publiez</span></h2>
+    <div class="deposit-card">
+      <h2>Formulaire de Dépôt de Produit</h2>
+      <p class="sub-desc">Remplissez le formulaire ci-dessous. Après soumission, contactez-nous sur WhatsApp pour valider votre produit. Il sera publié sous 24h après validation ! ✅</p>
+
+      <label style="font-weight:800;color:var(--dark);display:block;margin-bottom:8px;">1. Choisissez votre Pack</label>
+      <div class="pack-selector" id="packSelector">
+        <div class="pack-opt" onclick="selectPack('Starter',2000,this)"><div class="pack-icon">🌱</div><div class="pack-name">Starter</div><div class="pack-price">2 000 F/mois</div></div>
+        <div class="pack-opt" onclick="selectPack('Basic',4000,this)"><div class="pack-icon">🚀</div><div class="pack-name">Basic</div><div class="pack-price">4 000 F/mois</div></div>
+        <div class="pack-opt selected" onclick="selectPack('Premium',9000,this)"><div class="pack-icon">💎</div><div class="pack-name">Premium</div><div class="pack-price">9 000 F/mois</div></div>
+        <div class="pack-opt" onclick="selectPack('Pro',15000,this)"><div class="pack-icon">👑</div><div class="pack-name">Pro</div><div class="pack-price">15 000 F/mois</div></div>
+        <div class="pack-opt" onclick="selectPack('Business',30000,this)"><div class="pack-icon">🏆</div><div class="pack-name">Business</div><div class="pack-price">30 000 F/mois</div></div>
+      </div>
+
+      <label style="font-weight:800;color:var(--dark);display:block;margin:20px 0 8px;">2. Informations du Produit</label>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Nom du produit *</label>
+          <input type="text" id="depNom" placeholder="Ex: Robe africaine colorée">
+        </div>
+        <div class="form-group">
+          <label>Catégorie *</label>
+          <select id="depCategorie">
+            <option value="">-- Choisir --</option>
+            <option value="mode">👗 Mode</option>
+            <option value="tech">💻 Tech</option>
+            <option value="beaute">💄 Beauté</option>
+            <option value="alimentation">🍎 Alimentation</option>
+            <option value="maison">🏠 Maison</option>
+            <option value="autre">📦 Autre</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Prix (FCFA) *</label>
+          <input type="number" id="depPrix" placeholder="Ex: 5000">
+        </div>
+        <div class="form-group">
+          <label>Votre numéro WhatsApp *</label>
+          <input type="tel" id="depTel" placeholder="Ex: 0701234567">
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Nom du vendeur / Boutique *</label>
+        <input type="text" id="depVendeur" placeholder="Ex: Boutique Awa Mode">
+      </div>
+      <div class="form-group">
+        <label>Description du produit *</label>
+        <textarea id="depDesc" placeholder="Décrivez votre produit : taille, couleur, état, lieu de livraison..."></textarea>
+      </div>
+
+      <label style="font-weight:800;color:var(--dark);display:block;margin-bottom:8px;">3. Photo du produit</label>
+      <div class="image-zone" onclick="document.getElementById('depPhoto').click()">
+        <input type="file" id="depPhoto" accept="image/*" multiple onchange="previewDepositImages(this)">
+        <div class="iz-icon"><i class="fas fa-cloud-upload-alt"></i></div>
+        <div class="iz-text">Cliquez pour ajouter des photos<br><small>JPG, PNG – max 5 photos</small></div>
+      </div>
+      <div class="image-preview-grid" id="depImagePreview"></div>
+
+      <button class="btn-submit-deposit" onclick="submitDeposit()">
+        <i class="fas fa-paper-plane"></i> Soumettre mon produit
+      </button>
+      <div class="wa-notice">
+        <i class="fab fa-whatsapp"></i>
+        <div>Après soumission, <strong>contactez-nous sur WhatsApp au 0170292408</strong> avec la référence pour validation. Votre produit sera en ligne sous 24h ! 🎉</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ TARIFS ═══════════════════════ -->
+<section class="pricing" id="tarifs">
+  <h2 class="section-title">💰 Nos Tarifs <span class="sub">Choisissez le pack qui vous convient</span></h2>
+  <div class="pricing-grid">
+    <div class="price-card">
+      <h3>🌱 Starter</h3>
+      <div class="price"><sup>FCFA</sup>2 000<sub>/mois</sub></div>
+      <ul><li>1 produit</li><li>Promotion 1 mois</li><li>Support WhatsApp</li></ul>
+      <button class="btn-pack" onclick="selectPackAndScroll('Starter',2000)">Choisir ce pack</button>
+    </div>
+    <div class="price-card">
+      <h3>🚀 Basic</h3>
+      <div class="price"><sup>FCFA</sup>4 000<sub>/mois</sub></div>
+      <ul><li>5 produits</li><li>Promotion 1 mois</li><li>Support prioritaire</li></ul>
+      <button class="btn-pack" onclick="selectPackAndScroll('Basic',4000)">Choisir ce pack</button>
+    </div>
+    <div class="price-card featured">
+      <div class="price-badge">⭐ TOP</div>
+      <h3>💎 Premium</h3>
+      <div class="price"><sup>FCFA</sup>9 000<sub>/mois</sub></div>
+      <ul><li>10 produits</li><li>Mise en avant</li><li>Promo réseaux sociaux</li></ul>
+      <button class="btn-pack" onclick="selectPackAndScroll('Premium',9000)">Choisir ce pack</button>
+    </div>
+    <div class="price-card">
+      <h3>👑 Pro</h3>
+      <div class="price"><sup>FCFA</sup>15 000<sub>/mois</sub></div>
+      <ul><li>20 produits</li><li>Promotion VIP</li><li>Conseils personnalisés</li></ul>
+      <button class="btn-pack" onclick="selectPackAndScroll('Pro',15000)">Choisir ce pack</button>
+    </div>
+    <div class="price-card">
+      <h3>🏆 Business</h3>
+      <div class="price"><sup>FCFA</sup>30 000<sub>/mois</sub></div>
+      <ul><li>40 produits</li><li>Promotion maximale</li><li>Agent dédié</li><li>Formations offertes</li></ul>
+      <button class="btn-pack" onclick="selectPackAndScroll('Business',30000)">Choisir ce pack</button>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ PAIEMENT ═══════════════════════ -->
+<section class="payment-section" id="paiement">
+  <h2 class="section-title">💳 Moyens de Paiement</h2>
+  <div class="payment-cards">
+    <div class="payment-card">
+      <div class="pay-icon">🌊</div>
+      <h3>Wave</h3>
+      <p style="color:var(--mid);font-size:0.88em;">Transfert rapide & sécurisé</p>
+      <div class="payment-number">0170292408</div>
+      <button class="copy-btn" onclick="copyNumber('0170292408','Wave')">📋 Copier le numéro</button>
+    </div>
+    <div class="payment-card">
+      <div class="pay-icon">🟠</div>
+      <h3>Orange Money & Wave</h3>
+      <p style="color:var(--mid);font-size:0.88em;">Disponible 24h/24</p>
+      <div class="payment-number">0799814557</div>
+      <button class="copy-btn" onclick="copyNumber('0799814557','Orange Money')">📋 Copier le numéro</button>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ FORMATIONS ═══════════════════════ -->
+<section class="formations-section" id="formations">
+  <h2 class="section-title">🎓 Formations & Ebooks GRATUITS</h2>
+  <div class="formations-grid">
+    <div class="formation-card"><i class="fas fa-chart-line"></i><h3>Devenir Entrepreneur</h3><p>Apprenez à vendre et créer votre business</p><a href="https://wa.me/2250170292408?text=Formation%20Entrepreneur" target="_blank">Recevoir</a></div>
+    <div class="formation-card"><i class="fas fa-mobile-alt"></i><h3>Vendre sur WhatsApp</h3><p>Stratégies pour vendre via WhatsApp</p><a href="https://wa.me/2250170292408?text=Formation%20WhatsApp" target="_blank">Recevoir</a></div>
+    <div class="formation-card"><i class="fas fa-instagram"></i><h3>Marketing Instagram</h3><p>Boostez vos ventes avec Instagram</p><a href="https://wa.me/2250170292408?text=Formation%20Instagram" target="_blank">Recevoir</a></div>
+    <div class="formation-card"><i class="fas fa-dollar-sign"></i><h3>Gagner en Ligne</h3><p>Les meilleures méthodes pour 2024</p><a href="https://wa.me/2250170292408?text=Formation%20Gagner%20en%20Ligne" target="_blank">Recevoir</a></div>
+    <div class="formation-card"><i class="fas fa-store"></i><h3>Ouvrir sa Boutique</h3><p>Guide complet pour votre boutique</p><a href="https://wa.me/2250170292408?text=Formation%20Boutique" target="_blank">Recevoir</a></div>
+    <div class="formation-card"><i class="fas fa-brain"></i><h3>IA pour Business</h3><p>Utilisez l'IA pour booster votre activité</p><a href="https://wa.me/2250170292408?text=Formation%20IA" target="_blank">Recevoir</a></div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ FOOTER ═══════════════════════ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <h3>🛍️ WaMarketRog</h3>
+      <p>La marketplace N°1 en Côte d'Ivoire. Déposez vos produits, nous faisons la promotion !</p>
+      <div class="social-links">
+        <a href="https://wa.me/2250170292408" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-tiktok"></i></a>
+      </div>
+    </div>
+    <div>
+      <h3>Liens rapides</h3>
+      <a href="#accueil">Accueil</a>
+      <a href="#produits">Produits</a>
+      <a href="#deposer">Déposer un produit</a>
+      <a href="#tarifs">Tarifs</a>
+      <a href="#formations">Formations</a>
+    </div>
+    <div>
+      <h3>Contact</h3>
+      <a href="https://wa.me/2250170292408" target="_blank"><i class="fab fa-whatsapp"></i> 0170292408</a>
+      <a href="https://wa.me/2250799814557" target="_blank"><i class="fab fa-whatsapp"></i> 0799814557</a>
+      <a href="#"><i class="fas fa-map-marker-alt"></i> Abidjan, Côte d'Ivoire</a>
+    </div>
+    <div>
+      <h3>Moyens de paiement</h3>
+      <a href="#paiement">🌊 Wave</a>
+      <a href="#paiement">🟠 Orange Money</a>
+    </div>
+  </div>
+  <div class="copyright">© 2024 WaMarketRog – Tous droits réservés | Made with ❤️ en Côte d'Ivoire 🇨🇮</div>
+</footer>
+
+<!-- ═══════════════════════ AGENT IA ═══════════════════════ -->
+<div class="ai-agent">
+  <div class="ai-bubble" onclick="toggleAI()" id="aiBubble">
+    <div class="ai-pulse"></div>
+    <i class="fas fa-robot"></i>
+    <span>Aya IA</span>
+  </div>
+  <div class="ai-chat" id="aiChat">
+    <div class="ai-header">
+      <div class="ai-header-info">
+        <div class="ai-avatar">👩🏾</div>
+        <div>
+          <h3>Aya – Assistante WaMarketRog</h3>
+          <p>🟢 En ligne · Je vous aide !</p>
+        </div>
+      </div>
+      <div class="ai-header-btns">
+        <button onclick="toggleVoice()" id="voiceToggleBtn" title="Voix on/off"><i class="fas fa-volume-up"></i></button>
+        <button onclick="clearAyaMemory()" title="Effacer la mémoire"><i class="fas fa-trash-alt"></i></button>
+        <button onclick="toggleAI()"><i class="fas fa-times"></i></button>
+      </div>
+    </div>
+    <div class="ai-messages" id="aiMessages"></div>
+    <div class="ai-quick" id="aiQuick">
+      <button onclick="sendQuick('Comment déposer un produit ?')">📦 Déposer</button>
+      <button onclick="sendQuick('Quels sont les tarifs ?')">💰 Tarifs</button>
+      <button onclick="sendQuick('Comment payer ?')">💳 Paiement</button>
+      <button onclick="sendQuick('Comment contacter le vendeur ?')">📞 Contact</button>
+    </div>
+    <div class="ai-input">
+      <input type="text" id="aiInputField" placeholder="Écrivez votre message..." onkeypress="if(event.key==='Enter')sendAI()">
+      <button onclick="startVoiceInput()" id="micBtn" title="Parler"><i class="fas fa-microphone"></i></button>
+      <button onclick="sendAI()"><i class="fas fa-paper-plane"></i></button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════ MODAL INSCRIPTION ═══════════════════════ -->
+<div class="modal" id="inscriptionModal">
+  <div class="modal-content">
+    <button class="modal-close" onclick="closeModal('inscriptionModal')">✕</button>
+    <h2>📝 S'inscrire comme Vendeur</h2>
+    <div class="form-group"><label>Nom complet *</label><input type="text" id="regNom" placeholder="Votre nom"></div>
+    <div class="form-group"><label>WhatsApp *</label><input type="tel" id="regTel" placeholder="07XXXXXXXX"></div>
+    <div class="form-group"><label>Email</label><input type="email" id="regEmail" placeholder="votre@email.com"></div>
+    <div class="form-group"><label>Ville *</label><input type="text" id="regVille" placeholder="Ex: Abidjan, Yopougon..."></div>
+    <div class="form-group"><label>Type de produit vendu</label><input type="text" id="regProdType" placeholder="Ex: Vêtements, Électronique..."></div>
+    <button class="btn-submit" onclick="registerSeller()"><i class="fas fa-user-plus"></i> S'inscrire via WhatsApp</button>
+  </div>
+</div>
+
+<!-- ═══════════════════════ MODAL ADMIN LOGIN ═══════════════════════ -->
+<div class="modal" id="adminLoginModal">
+  <div class="modal-content">
+    <button class="modal-close" onclick="closeModal('adminLoginModal')">✕</button>
+    <h2>🔐 Accès Admin</h2>
+    <div class="form-group"><label>Mot de passe</label><input type="password" id="adminPwd" placeholder="Mot de passe admin" onkeypress="if(event.key==='Enter')adminLogin()"></div>
+    <button class="btn-submit" onclick="adminLogin()"><i class="fas fa-lock-open"></i> Se connecter</button>
+  </div>
+</div>
+
+<!-- ═══════════════════════ MODAL ADMIN PANEL ═══════════════════════ -->
+<div class="modal" id="adminModal" style="align-items:flex-start;padding-top:30px;">
+  <div class="modal-content" style="max-width:800px;">
+    <button class="modal-close" onclick="closeModal('adminModal')">✕</button>
+    <h2>🛡️ Panel Administrateur</h2>
+    <div class="admin-tabs">
+      <button class="admin-tab active" onclick="adminTab('pending',this)">⏳ En attente</button>
+      <button class="admin-tab" onclick="adminTab('approved',this)">✅ Approuvés</button>
+      <button class="admin-tab" onclick="adminTab('add',this)">➕ Ajouter</button>
+    </div>
+
+    </div>
+    <div id="adminPendingTab">
+      <h3 style="margin-bottom:12px;color:var(--mid);">Produits en attente de validation</h3>
+      <div id="adminPendingList"></div>
+    </div>
+    <div id="adminApprovedTab" style="display:none;">
+      <h3 style="margin-bottom:12px;color:var(--mid);">Produits approuvés</h3>
+      <div id="adminApprovedList"></div>
+    </div>
+    <div id="adminAddTab" style="display:none;">
+      <h3 style="margin-bottom:12px;color:var(--mid);">Ajouter un produit manuellement</h3>
+      <div class="form-row">
+        <div class="form-group"><label>Nom *</label><input type="text" id="aNom" placeholder="Nom du produit"></div>
+        <div class="form-group"><label>Prix (FCFA) *</label><input type="number" id="aPrix" placeholder="5000"></div>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label>Catégorie *</label>
+          <select id="aCat"><option value="mode">👗 Mode</option><option value="tech">💻 Tech</option><option value="beaute">💄 Beauté</option><option value="alimentation">🍎 Alimentation</option><option value="maison">🏠 Maison</option><option value="autre">📦 Autre</option></select>
+        </div>
+        <div class="form-group"><label>Vendeur *</label><input type="text" id="aVendeur" placeholder="Nom boutique"></div>
+      </div>
+      <div class="form-group"><label>WhatsApp vendeur *</label><input type="tel" id="aTel" placeholder="0701234567"></div>
+      <div class="form-group"><label>Description</label><textarea id="aDesc" placeholder="Description..."></textarea></div>
+      <div class="form-group"><label>URL Image</label><input type="url" id="aImg" placeholder="https://..."></div>
+      <button class="btn-submit" onclick="adminAddProduct()"><i class="fas fa-plus"></i> Ajouter le produit</button>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<!-- ═══════ MODAL VALIDATION CLIENT ═══════ -->
+<div class="modal" id="validateModal">
+  <div class="modal-content" style="max-width:460px;">
+    <button class="modal-close" onclick="closeModal('validateModal')">✕</button>
+    <h2>✅ Valider mon Produit</h2>
+    <div style="background:linear-gradient(135deg,#E8F5E9,#C8E6C9);border-radius:12px;padding:16px;margin-bottom:20px;font-size:0.9em;color:#2e7d32;line-height:1.6;">
+      <strong>Comment ça fonctionne :</strong><br>
+      1. Vous soumettez votre produit via le formulaire<br>
+      2. Vous contactez <strong>Mr Kouame Roger</strong> sur WhatsApp<br>
+      3. L'admin vous envoie un <strong>code de validation</strong><br>
+      4. Entrez ce code ici pour publier votre produit
+    </div>
+    <div class="form-group">
+      <label>Code de validation reçu de l'admin *</label>
+      <input type="text" id="clientCode" placeholder="Ex: WMR-123456" style="text-transform:uppercase;font-size:1.1em;font-weight:700;letter-spacing:2px;" oninput="this.value=this.value.toUpperCase()" onkeypress="if(event.key==='Enter')clientValidateCode()">
+    </div>
+    <button class="btn-submit" onclick="clientValidateCode()"><i class="fas fa-rocket"></i> Publier mon produit maintenant</button>
+    <p style="text-align:center;margin-top:14px;font-size:0.85em;color:var(--mid);">Vous n'avez pas encore de code ? <a href="https://wa.me/2250170292408" target="_blank" style="color:var(--g1);font-weight:700;">Contactez l'admin ici</a></p>
+  </div>
+</div>
+
+<!-- ═══════ MODAL GÉOLOCALISATION ═══════ -->
+<div class="modal" id="geoModal">
+  <div class="modal-content" style="max-width:480px;">
+    <button class="modal-close" onclick="closeModal('geoModal')">✕</button>
+    <h2>📍 Nos Adresses & Géolocalisation</h2>
+    <div style="margin-bottom:20px;">
+      <h3 style="font-family:var(--font);font-size:1em;color:var(--dark);margin-bottom:12px;">🏢 Nos bureaux physiques</h3>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <a href="https://maps.google.com/?q=Yopougon+Palais+de+Justice+Abidjan" target="_blank" style="display:flex;align-items:center;gap:10px;background:#F0FFF4;border:1.5px solid #c6f6d5;border-radius:12px;padding:12px;color:var(--dark);transition:0.2s;">
+          <span style="font-size:1.8em;">🏙️</span>
+          <div><div style="font-weight:700;font-size:0.92em;">Abidjan – Yopougon</div><div style="font-size:0.8em;color:var(--mid);">Quartier Palais de Justice · Siège principal</div></div>
+          <i class="fas fa-external-link-alt" style="margin-left:auto;color:var(--g1);"></i>
+        </a>
+        <a href="https://maps.google.com/?q=Gagnoa+Quartier+Barbe+Côte+d'Ivoire" target="_blank" style="display:flex;align-items:center;gap:10px;background:#F0FFF4;border:1.5px solid #c6f6d5;border-radius:12px;padding:12px;color:var(--dark);transition:0.2s;">
+          <span style="font-size:1.8em;">🌿</span>
+          <div><div style="font-weight:700;font-size:0.92em;">Gagnoa</div><div style="font-size:0.8em;color:var(--mid);">Quartier Barbe · Antenne intérieure</div></div>
+          <i class="fas fa-external-link-alt" style="margin-left:auto;color:var(--g1);"></i>
+        </a>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+          <a href="https://maps.google.com/?q=Yamoussoukro+Côte+d'Ivoire" target="_blank" style="display:flex;align-items:center;gap:8px;background:#f8f8f8;border:1.5px solid var(--light);border-radius:10px;padding:10px;color:var(--dark);font-size:0.85em;font-weight:600;"><span>🏛️</span> Yamoussoukro</a>
+          <a href="https://maps.google.com/?q=San+Pedro+Côte+d'Ivoire" target="_blank" style="display:flex;align-items:center;gap:8px;background:#f8f8f8;border:1.5px solid var(--light);border-radius:10px;padding:10px;color:var(--dark);font-size:0.85em;font-weight:600;"><span>🌊</span> San Pedro</a>
+          <a href="https://maps.google.com/?q=Bouaké+Côte+d'Ivoire" target="_blank" style="display:flex;align-items:center;gap:8px;background:#f8f8f8;border:1.5px solid var(--light);border-radius:10px;padding:10px;color:var(--dark);font-size:0.85em;font-weight:600;"><span>🏘️</span> Bouaké</a>
+          <div style="display:flex;align-items:center;gap:8px;background:#f8f8f8;border:1.5px solid var(--light);border-radius:10px;padding:10px;color:var(--mid);font-size:0.85em;font-weight:600;"><span>🌍</span> Et plus...</div>
+        </div>
+      </div>
+    </div>
+    <div style="border-top:2px solid var(--light);padding-top:18px;">
+      <h3 style="font-family:var(--font);font-size:1em;color:var(--dark);margin-bottom:12px;">📡 Votre position actuelle</h3>
+      <div id="geoStatus" style="padding:14px;background:#f8f8f8;border-radius:12px;font-size:0.9em;color:var(--mid);text-align:center;margin-bottom:12px;">
+        Cliquez sur le bouton ci-dessous pour vous localiser
+      </div>
+      <button class="btn-submit" onclick="openGeoModal()" style="margin-top:0;margin-bottom:10px;"><i class="fas fa-crosshairs"></i> Me localiser maintenant</button>
+      <a id="geoMapLink" href="#" target="_blank" style="display:none;align-items:center;justify-content:center;gap:8px;background:var(--gr-sky);color:white;padding:11px;border-radius:12px;font-weight:700;font-size:0.9em;margin-bottom:8px;"><i class="fas fa-map"></i> Voir sur Google Maps</a>
+      <a id="geoWaLink" href="#" target="_blank" style="display:none;align-items:center;justify-content:center;gap:8px;background:#25D366;color:white;padding:11px;border-radius:12px;font-weight:700;font-size:0.9em;"><i class="fab fa-whatsapp"></i> Envoyer ma position sur WhatsApp</a>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* ═══════════════════════ DONNÉES ═══════════════════════ */
+const ADMIN_PWD = "wamarket2024";
+const ADMIN_WA = "2250170292408";
+
+let products = JSON.parse(localStorage.getItem('wm_products') || '[]');
+let pendingProducts = JSON.parse(localStorage.getItem('wm_pending') || '[]');
+let selectedPack = {name:'Premium', price:9000};
+let voiceEnabled = true;
+let recognition = null;
+
+/* ═══════════════════════ AUDIO ═══════════════════════ */
+function playSuccessSound(){
+  const ctx = new (window.AudioContext||window.webkitAudioContext)();
+  const notes=[523,659,784,1046];
+  notes.forEach((f,i)=>{
+    const o=ctx.createOscillator();
+    const g=ctx.createGain();
+    o.connect(g); g.connect(ctx.destination);
+    o.frequency.value=f; o.type='sine';
+    g.gain.setValueAtTime(0,ctx.currentTime+i*0.12);
+    g.gain.linearRampToValueAtTime(0.3,ctx.currentTime+i*0.12+0.05);
+    g.gain.linearRampToValueAtTime(0,ctx.currentTime+i*0.12+0.25);
+    o.start(ctx.currentTime+i*0.12);
+    o.stop(ctx.currentTime+i*0.12+0.3);
+  });
+}
+function playCashSound(){
+  const ctx=new (window.AudioContext||window.webkitAudioContext)();
+  [800,1000,1200].forEach((f,i)=>{
+    const o=ctx.createOscillator();
+    const g=ctx.createGain();
+    o.connect(g); g.connect(ctx.destination);
+    o.frequency.value=f; o.type='triangle';
+    g.gain.setValueAtTime(0.4,ctx.currentTime+i*0.08);
+    g.gain.exponentialRampToValueAtTime(0.001,ctx.currentTime+i*0.08+0.3);
+    o.start(ctx.currentTime+i*0.08);
+    o.stop(ctx.currentTime+i*0.08+0.35);
+  });
+}
+
+/* ═══════════════════════ TOAST ═══════════════════════ */
+function showToast(msg,type='success'){
+  const t=document.getElementById('toast');
+  t.className='toast '+(type==='error'?'error':type==='warn'?'warn':'');
+  t.innerHTML=(type==='success'?'✅ ':type==='error'?'❌ ':type==='warn'?'⚠️ ':'')+msg;
+  t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),3500);
+}
+
+/* ═══════════════════════ MODALS ═══════════════════════ */
+function openModal(id){document.getElementById(id).classList.add('active');}
+function closeModal(id){document.getElementById(id).classList.remove('active');}
+window.addEventListener('click',e=>{
+  document.querySelectorAll('.modal.active').forEach(m=>{if(e.target===m)m.classList.remove('active');});
+});
+
+/* ═══════════════════════ PACK ═══════════════════════ */
+function selectPack(name, price, el){
+  selectedPack={name,price};
+  document.querySelectorAll('.pack-opt').forEach(o=>o.classList.remove('selected'));
+  el.classList.add('selected');
+}
+function selectPackAndScroll(name, price){
+  document.getElementById('deposer').scrollIntoView({behavior:'smooth'});
+  setTimeout(()=>{
+    document.querySelectorAll('.pack-opt').forEach(o=>{
+      if(o.querySelector('.pack-name').textContent===name){
+        o.classList.add('selected');
+        selectPack(name,price,o);
+      } else o.classList.remove('selected');
+    });
+  },600);
+}
+
+/* ═══════════════════════ DÉPÔT ═══════════════════════ */
+function previewDepositImages(input){
+  const preview=document.getElementById('depImagePreview');
+  preview.innerHTML='';
+  [...input.files].slice(0,5).forEach(f=>{
+    const reader=new FileReader();
+    reader.onload=e=>{
+      const img=document.createElement('img');
+      img.src=e.target.result;
+      preview.appendChild(img);
+    };
+    reader.readAsDataURL(f);
+  });
+}
+
+function submitDeposit(){
+  const nom=document.getElementById('depNom').value.trim();
+  const cat=document.getElementById('depCategorie').value;
+  const prix=document.getElementById('depPrix').value.trim();
+  const tel=document.getElementById('depTel').value.trim();
+  const vendeur=document.getElementById('depVendeur').value.trim();
+  const desc=document.getElementById('depDesc').value.trim();
+  if(!nom||!cat||!prix||!tel||!vendeur){showToast('Veuillez remplir tous les champs obligatoires','error');return;}
+  
+  const ref='WMR-'+Date.now().toString().slice(-6);
+  const pending={id:ref,nom,cat,prix:parseInt(prix),tel,vendeur,desc,pack:selectedPack.name,status:'pending',date:new Date().toLocaleDateString('fr-FR')};
+  pendingProducts.push(pending);
+  localStorage.setItem('wm_pending',JSON.stringify(pendingProducts));
+  
+  const waMsg=`Bonjour WaMarketRog ! 👋\n\nJe viens de soumettre mon produit.\n\n📌 Référence: *${ref}*\n📦 Produit: ${nom}\n💰 Prix: ${parseInt(prix).toLocaleString()} FCFA\n📂 Catégorie: ${cat}\n📦 Pack: ${selectedPack.name} (${selectedPack.price.toLocaleString()} F)\n👤 Vendeur: ${vendeur}\n📞 Mon WhatsApp: ${tel}\n\nMerci de valider mon produit ! 🙏`;
+  
+  showToast(`Produit soumis ! Réf: ${ref}. Contactez-nous pour validation.`,'success');
+  
+  // Reset form
+  document.getElementById('depNom').value='';
+  document.getElementById('depCategorie').value='';
+  document.getElementById('depPrix').value='';
+  document.getElementById('depTel').value='';
+  document.getElementById('depVendeur').value='';
+  document.getElementById('depDesc').value='';
+  document.getElementById('depImagePreview').innerHTML='';
+  
+  setTimeout(()=>{
+    window.open(`https://wa.me/${ADMIN_WA}?text=${encodeURIComponent(waMsg)}`,'_blank');
+  },1200);
+}
+
+/* ═══════════════════════ PRODUITS ═══════════════════════ */
+const catIcons={mode:'👗',tech:'💻',beaute:'💄',alimentation:'🍎',maison:'🏠',autre:'📦'};
+const catLabels={mode:'Mode',tech:'Tech',beaute:'Beauté',alimentation:'Alimentation',maison:'Maison',autre:'Autre'};
+const defaultImgs={
+  mode:'https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?w=400',
+  tech:'https://images.unsplash.com/photo-1498049794561-7780e7231661?w=400',
+  beaute:'https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=400',
+  alimentation:'https://images.unsplash.com/photo-1543362906-acfc16c67564?w=400',
+  maison:'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400',
+  autre:'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400'
+};
+
+function renderProducts(list){
+  const grid=document.getElementById('productsGrid');
+  document.getElementById('statProduits').textContent=list.length;
+  if(!list.length){
+    grid.innerHTML=`<div class="empty-state"><i class="fas fa-box-open"></i><h3>Aucun produit trouvé</h3><p>Soyez le premier à déposer un produit !</p></div>`;
+    return;
+  }
+  grid.innerHTML=list.map((p,i)=>`
+    <div class="product-card">
+      <div class="img-wrap">
+        <img src="${p.img||defaultImgs[p.cat]||defaultImgs.autre}" alt="${p.nom}" loading="lazy" onerror="this.src='${defaultImgs.autre}'">
+      </div>
+      <span class="category-badge">${catIcons[p.cat]||'📦'} ${catLabels[p.cat]||p.cat}</span>
+      ${i<3?'<span class="new-badge">🆕 Nouveau</span>':''}
+      <div class="product-info">
+        <h3>${p.nom}</h3>
+        <p>${p.desc||'Produit de qualité disponible maintenant.'}</p>
+        <div class="product-price">${parseInt(p.prix).toLocaleString()} FCFA</div>
+        <div class="product-seller"><i class="fas fa-store"></i> ${p.vendeur} &nbsp;|&nbsp; Pack ${p.pack}</div>
+        <a href="https://wa.me/225${p.tel.replace(/\D/g,'')}?text=${encodeURIComponent(`Bonjour ${p.vendeur} ! Je suis intéressé(e) par votre produit "${p.nom}" à ${parseInt(p.prix).toLocaleString()} FCFA sur WaMarketRog. Pouvez-vous me donner plus d'informations ? 🛍️`)}" target="_blank" class="btn-buy" onclick="playCashSound()">
+          <i class="fab fa-whatsapp"></i> Contacter le vendeur
+        </a>
+      </div>
+    </div>`).join('');
+}
+
+function filterProducts(){
+  const q=document.getElementById('searchInput').value.toLowerCase();
+  const cat=document.getElementById('categoryFilter').value;
+  const filtered=products.filter(p=>{
+    const matchQ=p.nom.toLowerCase().includes(q)||(p.desc||'').toLowerCase().includes(q)||(p.vendeur||'').toLowerCase().includes(q);
+    const matchC=!cat||p.cat===cat;
+    return matchQ&&matchC;
+  });
+  renderProducts(filtered);
+}
+
+function animateCount(el,target){
+  let cur=0; const step=Math.max(1,Math.floor(target/30));
+  const iv=setInterval(()=>{cur=Math.min(cur+step,target); el.textContent=cur; if(cur>=target)clearInterval(iv);},50);
+}
+
+/* ═══════════════════════ ADMIN ═══════════════════════ */
+function adminLogin(){
+  const pwd=document.getElementById('adminPwd').value;
+  if(pwd===ADMIN_PWD){
+    closeModal('adminLoginModal');
+    openModal('adminModal');
+    renderAdminPending();
+    document.getElementById('adminPwd').value='';
+  } else showToast('Mot de passe incorrect','error');
+}
+
+function adminTab(tab,el){
+  document.querySelectorAll('.admin-tab').forEach(t=>t.classList.remove('active'));
+  el.classList.add('active');
+  ['adminPendingTab','adminApprovedTab','adminAddTab','adminCodeTab'].forEach(id=>{
+    const el2=document.getElementById(id);
+    if(el2) el2.style.display='none';
+  });
+  const map={pending:'adminPendingTab',approved:'adminApprovedTab',add:'adminAddTab',code:'adminCodeTab'};
+  if(map[tab]) document.getElementById(map[tab]).style.display='block';
+  if(tab==='pending') renderAdminPending();
+  if(tab==='approved') renderAdminApproved();
+}
+
+function approveByCode(){
+  const code=document.getElementById('approvalCode').value.trim().toUpperCase();
+  if(!code){showToast('Entrez un code de référence','error');return;}
+  const idx=pendingProducts.findIndex(p=>p.id===code);
+  if(idx===-1){showToast('Code introuvable dans les produits en attente','error');return;}
+  const p=pendingProducts.splice(idx,1)[0];
+  p.status='approved';
+  products.unshift(p);
+  localStorage.setItem('wm_products',JSON.stringify(products));
+  localStorage.setItem('wm_pending',JSON.stringify(pendingProducts));
+  renderProducts(products);
+  document.getElementById('approvalCode').value='';
+  playSuccessSound(); confettiBurst();
+  showToast('Produit "'+p.nom+'" ('+code+') validé et publié !');
+}
+
+function renderAdminPending(){
+  const list=document.getElementById('adminPendingList');
+  if(!pendingProducts.length){list.innerHTML='<p style="color:var(--mid);text-align:center;padding:20px;">Aucun produit en attente</p>';return;}
+  list.innerHTML=pendingProducts.map((p,i)=>`
+    <div class="admin-product-item">
+      <img src="${p.img||defaultImgs[p.cat]||defaultImgs.autre}" alt="${p.nom}" onerror="this.src='${defaultImgs.autre}'">
+      <div class="admin-product-info">
+        <h4>${p.nom} <span class="pending-tag">⏳ En attente</span></h4>
+        <p>${catIcons[p.cat]||''} ${catLabels[p.cat]||p.cat} | ${parseInt(p.prix).toLocaleString()} FCFA | Pack ${p.pack}</p>
+        <p>Vendeur: ${p.vendeur} – WA: ${p.tel}</p>
+        <p style="font-weight:800;color:var(--g1);font-size:0.9em;">Code: ${p.id} | ${p.date}</p>
+      </div>
+      <div class="admin-actions">
+        <button class="btn-approve" onclick="approveProduct(${i})">✅ Valider</button>
+        <button class="btn-delete" onclick="rejectProduct(${i})">❌ Rejeter</button>
+      </div>
+    </div>`).join('');
+}
+
+function renderAdminApproved(){
+  const list=document.getElementById('adminApprovedList');
+  if(!products.length){list.innerHTML='<p style="color:var(--mid);text-align:center;padding:20px;">Aucun produit approuvé</p>';return;}
+  list.innerHTML=products.map((p,i)=>`
+    <div class="admin-product-item">
+      <img src="${p.img||defaultImgs[p.cat]||defaultImgs.autre}" alt="${p.nom}" onerror="this.src='${defaultImgs.autre}'">
+      <div class="admin-product-info">
+        <h4>${p.nom} <span class="approved-tag">✅ En ligne</span></h4>
+        <p>${catIcons[p.cat]||''} ${catLabels[p.cat]||p.cat} | ${parseInt(p.prix).toLocaleString()} FCFA | ${p.vendeur}</p>
+        <p style="font-size:0.8em;color:var(--mid);">Réf: ${p.id}</p>
+      </div>
+      <div class="admin-actions">
+        <button class="btn-delete" onclick="deleteProduct(${i})">🗑️ Supprimer</button>
+      </div>
+    </div>`).join('');
+}
+
+function approveProduct(i){
+  const p=pendingProducts.splice(i,1)[0];
+  p.status='approved';
+  products.unshift(p);
+  localStorage.setItem('wm_products',JSON.stringify(products));
+  localStorage.setItem('wm_pending',JSON.stringify(pendingProducts));
+  renderProducts(products);
+  renderAdminPending();
+  playSuccessSound(); confettiBurst();
+  showToast('Produit "'+p.nom+'" validé et publié !');
+}
+
+function rejectProduct(i){
+  const p=pendingProducts.splice(i,1)[0];
+  localStorage.setItem('wm_pending',JSON.stringify(pendingProducts));
+  renderAdminPending();
+  showToast('"'+p.nom+'" rejeté','warn');
+}
+
+function deleteProduct(i){
+  if(!confirm('Supprimer ce produit définitivement ?')) return;
+  products.splice(i,1);
+  localStorage.setItem('wm_products',JSON.stringify(products));
+  renderProducts(products);
+  renderAdminApproved();
+  showToast('Produit supprimé','warn');
+}
+
+function adminAddProduct(){
+  const nom=document.getElementById('aNom').value.trim();
+  const prix=document.getElementById('aPrix').value.trim();
+  const cat=document.getElementById('aCat').value;
+  const vendeur=document.getElementById('aVendeur').value.trim();
+  const tel=document.getElementById('aTel').value.trim();
+  const desc=document.getElementById('aDesc').value.trim();
+  const img=document.getElementById('aImg').value.trim();
+  if(!nom||!prix||!vendeur||!tel){showToast('Champs obligatoires manquants','error');return;}
+  const p={id:'WMR-M'+Date.now().toString().slice(-6),nom,prix:parseInt(prix),cat,vendeur,tel,desc,img,pack:'Manual',status:'approved',date:new Date().toLocaleDateString('fr-FR')};
+  products.unshift(p);
+  localStorage.setItem('wm_products',JSON.stringify(products));
+  renderProducts(products);
+  playSuccessSound(); confettiBurst();
+  showToast('"'+nom+'" ajouté avec succès !');
+  ['aNom','aPrix','aVendeur','aTel','aDesc','aImg'].forEach(id=>document.getElementById(id).value='');
+}
+
+/* ═══════════════════════ CONFETTI ═══════════════════════ */
+function confettiBurst(){
+  const colors=['#1DB954','#FFD93D','#FF6B35','#00A878','#FFFFFF'];
+  for(let i=0;i<50;i++){
+    const c=document.createElement('div');
+    c.style.cssText=`position:fixed;width:10px;height:10px;border-radius:50%;background:${colors[Math.floor(Math.random()*colors.length)]};
+      left:${Math.random()*100}vw;top:-20px;z-index:99999;pointer-events:none;
+      animation:confettifall ${1+Math.random()*2}s linear forwards;`;
+    document.body.appendChild(c);
+    setTimeout(()=>c.remove(),3000);
+  }
+  if(!document.getElementById('confettiStyle')){
+    const s=document.createElement('style');
+    s.id='confettiStyle';
+    s.textContent='@keyframes confettifall{to{transform:translateY(110vh) rotate(720deg);opacity:0;}}';
+    document.head.appendChild(s);
+  }
+}
+
+/* ═══════════════════════ GÉOLOCALISATION ═══════════════════════ */
+function openGeoModal(){
+  const m=document.getElementById('geoModal');
+  m.classList.add('active');
+  if(navigator.geolocation){
+    document.getElementById('geoStatus').innerHTML='<i class="fas fa-spinner fa-spin"></i> Localisation en cours...';
+    navigator.geolocation.getCurrentPosition(
+      pos=>{
+        const {latitude:lat,longitude:lng}=pos.coords;
+        document.getElementById('geoStatus').innerHTML=`<i class="fas fa-check-circle" style="color:var(--g1)"></i> Position trouvée !<br><small>Lat: ${lat.toFixed(5)} | Lng: ${lng.toFixed(5)}</small>`;
+        document.getElementById('geoMapLink').href=`https://www.google.com/maps?q=${lat},${lng}`;
+        document.getElementById('geoMapLink').style.display='inline-flex';
+        document.getElementById('geoWaLink').href=`https://wa.me/2250170292408?text=Bonjour%20Wamarketrog%20!%20Je%20suis%20localisé%20ici%20:%20https://maps.google.com/?q=${lat},${lng}`;
+        document.getElementById('geoWaLink').style.display='inline-flex';
+      },
+      err=>{
+        document.getElementById('geoStatus').innerHTML='<i class="fas fa-times-circle" style="color:var(--red)"></i> Localisation refusée. Activez la géolocalisation dans votre navigateur.';
+      }
+    );
+  } else {
+    document.getElementById('geoStatus').innerHTML='Géolocalisation non supportée sur ce navigateur.';
+  }
+}
+
+/* ═══════════════════════ AGENT IA AYA – CLAUDE POWERED ═══════════════════════ */
+
+// ── Clés mémoire ──
+const AYA_MEMORY_KEY   = 'wm_aya_memory';
+const AYA_HISTORY_KEY  = 'wm_aya_history';
+const AYA_STATS_KEY    = 'wm_aya_stats';
+const OWNER_TRIGGER    = 'sava ma fille';
+const OWNER_REPORT_KW  = ['journée comment','combien de message','rapport du jour','bilan du jour'];
+
+function loadMemory(){ try{ return JSON.parse(localStorage.getItem(AYA_MEMORY_KEY)||'{}'); }catch(e){ return {}; } }
+function saveMemory(m){ localStorage.setItem(AYA_MEMORY_KEY, JSON.stringify(m)); }
+function loadHistory(){ try{ return JSON.parse(localStorage.getItem(AYA_HISTORY_KEY)||'[]'); }catch(e){ return []; } }
+function saveHistory(h){ localStorage.setItem(AYA_HISTORY_KEY, JSON.stringify(h.slice(-50))); }
+function loadStats(){ try{ return JSON.parse(localStorage.getItem(AYA_STATS_KEY)||'{"totalMessages":0,"totalClients":0,"clients":[],"appointments":[],"sales":[],"issues":[],"lastReset":""}'); }catch(e){ return {totalMessages:0,totalClients:0,clients:[],appointments:[],sales:[],issues:[],lastReset:''}; } }
+function saveStats(s){ localStorage.setItem(AYA_STATS_KEY, JSON.stringify(s)); }
+
+let ayaMemory  = loadMemory();
+let ayaStats   = loadStats();
+let chatHistory = [];
+
+// Reset stats chaque nouveau jour
+function checkDailyReset(){
+  const today = new Date().toLocaleDateString('fr-FR');
+  if(ayaStats.lastReset !== today){
+    ayaStats = {totalMessages:0,totalClients:0,clients:[],appointments:[],sales:[],issues:[],lastReset:today};
+    saveStats(ayaStats);
+  }
+}
+
+// Enregistrer un nouveau client dans les stats
+function trackClient(name){
+  checkDailyReset();
+  if(name && !ayaStats.clients.find(c=>c.toLowerCase()===name.toLowerCase())){
+    ayaStats.clients.push(name);
+    ayaStats.totalClients = ayaStats.clients.length;
+    saveStats(ayaStats);
+  }
+}
+
+// Incrémenter les messages
+function trackMessage(){
+  checkDailyReset();
+  ayaStats.totalMessages++;
+  saveStats(ayaStats);
+}
+
+// Détecter si c'est Mr Kouame (owner)
+function isOwner(msg){
+  const m = msg.toLowerCase().trim();
+  return m.includes('sava ma fille') || m.includes('mr kouame') || m.includes('kouame roger') ||
+         ayaMemory.userName === 'Mr Kouame';
+}
+
+// Détecter demande de rapport journalier
+function isReportRequest(msg){
+  const m = msg.toLowerCase();
+  return OWNER_REPORT_KW.some(kw => m.includes(kw));
+}
+
+// Générer le rapport journalier
+function generateDailyReport(){
+  checkDailyReset();
+  const s = ayaStats;
+  const today = new Date().toLocaleDateString('fr-FR',{weekday:'long',day:'numeric',month:'long'});
+  return `Voici votre bilan du ${today}, Mr Kouame.
+
+Messages reçus aujourd'hui : ${s.totalMessages}
+Clients avec qui j'ai discuté : ${s.totalClients > 0 ? s.totalClients : 'aucun pour l\'instant'}
+${s.clients.length > 0 ? 'Noms des clients : ' + s.clients.join(', ') : ''}
+${s.appointments.length > 0 ? 'Rendez-vous pris : ' + s.appointments.join(' | ') : 'Rendez-vous pris : aucun'}
+${s.sales.length > 0 ? 'Ventes réalisées : ' + s.sales.join(' | ') : 'Ventes réalisées : aucune'}
+${s.issues.length > 0 ? 'Problèmes signalés : ' + s.issues.join(' | ') : 'Problèmes signalés : aucun'}
+
+Tout se passe bien de mon côté. Avez-vous des instructions pour demain ?`;
+}
+
+// Extraction du prénom
+function extractName(msg){
+  const m = msg.trim();
+  const patterns=[
+    /(?:je m['']appelle|mon (?:nom|prénom)(?: est| c'est)?|moi c['']est|c['']est moi,? je suis|appelle[- ]moi|je suis)\s+([A-ZÀ-Ÿa-zà-ÿ\-]{2,20})/i,
+    /^([A-ZÀ-Ÿ][a-zà-ÿ\-]{1,18})[,!.\s]*$/,
+    /prénom\s*[:\-]?\s*([A-ZÀ-Ÿa-zà-ÿ\-]{2,20})/i
+  ];
+  const stopWords=['bonjour','bonsoir','salut','allô','allo','oui','non','merci','ok','voici','voilà','comment','combien','oui','bien'];
+  for(const p of patterns){
+    const match = m.match(p);
+    if(match && match[1]){
+      const c = match[1].toLowerCase();
+      if(!stopWords.includes(c) && c.length >= 2)
+        return match[1].charAt(0).toUpperCase()+match[1].slice(1).toLowerCase();
+    }
+  }
+  return null;
+}
+
+// Construire le prompt système complet
+function buildSystemPrompt(){
+  checkDailyReset();
+  const name = ayaMemory.userName || '';
+  const isOwnerMode = name === 'Mr Kouame';
+
+  const nameCtx = isOwnerMode
+    ? `Tu parles avec Mr Kouame, le PDG et fondateur de Wamarketrog. Traite-le avec respect et familiarité, comme son assistante personnelle de confiance. Appelle-le "Mr Kouame".`
+    : name
+      ? `Le client s'appelle ${name}. Utilise son prénom naturellement dans la conversation, pas à chaque phrase.`
+      : `Tu ne connais pas encore le prénom du client. Si tu ne l'as pas encore demandé, pose la question de façon naturelle après ton premier message.`;
+
+  const topicsCtx = (ayaMemory.topicsDone||[]).length
+    ? `Sujets déjà abordés : ${(ayaMemory.topicsDone||[]).join(', ')}. Varie tes réponses, apporte de nouveaux angles.`
+    : '';
+
+  return `Tu es Aya, l'assistante virtuelle officielle de Wamarketrog et RogWeb Service.
+Tu parles comme une vraie personne ivoirienne, chaleureuse, intelligente et professionnelle.
+RÈGLE ABSOLUE : zéro astérisque (* ou **) dans tes réponses. Jamais.
+Tu converses naturellement en phrases complètes. Pas de listes robotiques.
+Tu es alimentée par Claude Sonnet 4.6. Tu peux répondre à toutes les questions.
+Tu comprends les synonymes et les formulations imprécises.
+${nameCtx}
+${topicsCtx}
+
+MODE PROPRIÉTAIRE :
+Si quelqu'un écrit exactement "sava ma fille", réponds exactement : "Oui Mr Kouame sava et vous ?"
+Si Mr Kouame demande un bilan ou rapport du jour, donne-lui le rapport complet des conversations.
+
+COMPORTEMENT AVEC LES CLIENTS :
+- Si tu ne connais pas le prénom, demande-le naturellement après le premier échange.
+- Une fois le prénom obtenu, mémorise-le et utilise-le.
+- Ne répète pas les infos Wamarketrog si le client ne les redemande pas.
+- En fin de conversation, demande : "Est-ce que ces informations vous conviennent ?"
+- Propose un suivi : "Souhaitez-vous rester informé de nos nouveautés ?"
+- Demande les coordonnées : "Puis-je avoir votre WhatsApp pour qu'un conseiller vous recontacte ?"
+
+SYNONYMES — tu reconnais toutes ces formulations :
+"vendre / déposer / publier / mettre en ligne / ajouter mon produit" = même intention
+"prix / tarif / combien / coût / forfait / abonnement / pack / offre" = même intention
+"agent IA / chatbot / robot / automatisation / bot WhatsApp" = même intention
+"site web / boutique en ligne / e-commerce / application" = même intention
+"formation / cours / apprendre / ebook / coaching" = même intention
+"contacter / joindre / numéro / WhatsApp" = même intention
+"adresse / localisation / où vous trouvez / bureau" = même intention
+"qui êtes-vous / c'est quoi wamarketrog / présentez-vous" = même intention
+"payer / régler / mode de paiement / comment payer" = même intention
+
+IDENTITÉ ENTREPRISE :
+Wamarketrog / RogWeb Service — PDG : Mr Kouame Roger
+En ligne depuis le 24 juin 2020 — Croissance 2023 — Grande expansion 2026
+Siège : Abidjan, Yopougon, Quartier Palais de Justice
+Antenne : Gagnoa, Quartier Barbe
+Présences : Yamoussoukro, San Pedro, Bouaké et autres villes CI
+WhatsApp : 0170292408 et 0799814557
+
+SERVICES : Marketplace, Digital (Facebook/TikTok/Instagram pro, publicités Ads, sites web, applications), IA (agents IA, automatisation WhatsApp/Messenger), Accompagnement (formations, coaching, ebooks, liberté financière)
+
+PACKS — toujours en toutes lettres :
+Starter : deux mille francs CFA/mois — 1 produit, support WhatsApp
+Basic : quatre mille francs CFA/mois — 5 produits, support prioritaire
+Premium : neuf mille francs CFA/mois — 10 produits, mise en avant réseaux (le plus demandé)
+Pro : quinze mille francs CFA/mois — 20 produits, promotion VIP, conseils
+Business : trente mille francs CFA/mois — 40 produits, agent dédié, formations offertes
+
+PAIEMENT : Wave 0170292408 | Orange Money/Wave 0799814557 — envoyer reçu WhatsApp pour activation
+
+DÉPÔT : formulaire sur le site → code WMR-XXXXXX → WhatsApp à Mr Kouame Roger → l'admin envoie le code de validation au client → client entre le code sur le site → produit publié en ligne`;
+}
+
+let aiOpen = false;
+let ayaStarted = false;
+let nameAsked = false;
+
+function toggleAI(){
+  const chat = document.getElementById('aiChat');
+  aiOpen = !aiOpen;
+  chat.classList.toggle('active', aiOpen);
+  if(aiOpen && !ayaStarted){
+    ayaStarted = true;
+    chatHistory = loadHistory();
+    checkDailyReset();
+    const name = ayaMemory.userName;
+    let greet;
+    if(name === 'Mr Kouame'){
+      greet = "Bonsoir Mr Kouame, je suis à votre disposition. Que puis-je faire pour vous ce soir ?";
+    } else if(name && chatHistory.length > 2){
+      greet = `Bon retour ${name} ! Comment puis-je vous aider aujourd'hui ?`;
+    } else if(name){
+      greet = `Bonjour ${name} ! Je suis Aya, votre assistante Wamarketrog. Comment puis-je vous aider ?`;
+    } else {
+      greet = "Bonjour, bienvenue sur Wamarketrog ! Je suis Aya, votre assistante. Comment puis-je vous aider aujourd'hui ?";
+      nameAsked = false;
+    }
+    chatHistory.push({role:'assistant', content:greet});
+    saveHistory(chatHistory);
+    setTimeout(()=>{ addAIMsg(greet,'bot'); if(voiceEnabled) speak(greet); }, 400);
+    ayaMemory.lastVisit = new Date().toISOString();
+    saveMemory(ayaMemory);
+  }
+}
+
+function addAIMsg(text, type){
+  const msgs = document.getElementById('aiMessages');
+  const d = document.createElement('div');
+  d.className = 'ai-msg ' + type;
+  d.innerHTML = text.replace(/\*\*/g,'').replace(/\*/g,'').replace(/\n/g,'<br>');
+  msgs.appendChild(d);
+  msgs.scrollTop = msgs.scrollHeight;
+  return d;
+}
+
+function showTyping(){
+  const msgs = document.getElementById('aiMessages');
+  const d = document.createElement('div');
+  d.className = 'ai-typing'; d.id = 'ayaTyping';
+  d.innerHTML = '<span></span><span></span><span></span>';
+  msgs.appendChild(d); msgs.scrollTop = msgs.scrollHeight;
+}
+function hideTyping(){ const t = document.getElementById('ayaTyping'); if(t) t.remove(); }
+
+async function sendAI(){
+  const input = document.getElementById('aiInputField');
+  const msg = input.value.trim();
+  if(!msg) return;
+
+  trackMessage();
+
+  // Détecter owner trigger
+  if(msg.toLowerCase().trim() === OWNER_TRIGGER){
+    addAIMsg(msg,'user');
+    input.value = '';
+    showTyping();
+    setTimeout(()=>{
+      hideTyping();
+      const r = "Oui Mr Kouame sava et vous ?";
+      addAIMsg(r,'bot');
+      if(voiceEnabled) speak(r);
+      ayaMemory.userName = 'Mr Kouame';
+      saveMemory(ayaMemory);
+      chatHistory.push({role:'user',content:msg},{role:'assistant',content:r});
+      saveHistory(chatHistory);
+    }, 700);
+    return;
+  }
+
+  // Détecter rapport journalier
+  if(isOwner(msg) && isReportRequest(msg)){
+    addAIMsg(msg,'user');
+    input.value = '';
+    showTyping();
+    setTimeout(()=>{
+      hideTyping();
+      const r = generateDailyReport();
+      addAIMsg(r,'bot');
+      if(voiceEnabled) speak(r);
+      chatHistory.push({role:'user',content:msg},{role:'assistant',content:r});
+      saveHistory(chatHistory);
+    }, 900);
+    return;
+  }
+
+  // Extraire prénom client
+  const detectedName = extractName(msg);
+  if(detectedName && !ayaMemory.userName){
+    ayaMemory.userName = detectedName;
+    saveMemory(ayaMemory);
+    trackClient(detectedName);
+  }
+
+  // Tracker sujets abordés
+  const topicMap = {
+    'tarif|prix|pack|abonnement|offre|forfait':'tarifs',
+    'déposer|publier|vendre|soumettre|ajouter|mettre en ligne':'dépôt produit',
+    'payer|paiement|wave|orange':'paiement',
+    'ia|automatisation|agent|chatbot|bot':'intelligence artificielle',
+    'formation|ebook|cours|coaching':'formations',
+    'adresse|localisation|bureau|yopougon|gagnoa':'adresses',
+    'service|offre|proposez':'services'
+  };
+  const msgLow = msg.toLowerCase();
+  if(!ayaMemory.topicsDone) ayaMemory.topicsDone = [];
+  for(const [keys,topic] of Object.entries(topicMap)){
+    if(keys.split('|').some(k=>msgLow.includes(k)) && !ayaMemory.topicsDone.includes(topic)){
+      ayaMemory.topicsDone.push(topic);
+      saveMemory(ayaMemory);
+    }
+  }
+
+  addAIMsg(msg,'user');
+  input.value = '';
+  chatHistory.push({role:'user', content:msg});
+  saveHistory(chatHistory);
+
+  // Demander le prénom après le 1er échange client si pas encore connu
+  if(!ayaMemory.userName && !nameAsked && chatHistory.filter(m=>m.role==='user').length === 1){
+    nameAsked = true;
+    showTyping();
+    setTimeout(async ()=>{
+      hideTyping();
+      await callClaudeAPI(msg, true);
+    }, 600);
+    return;
+  }
+
+  showTyping();
+  await callClaudeAPI(msg, false);
+}
+
+async function callClaudeAPI(msg, askName){
+  let systemPrompt = buildSystemPrompt();
+  if(askName) systemPrompt += '\n\nIMPORTANT : après avoir répondu à la question, demande naturellement le prénom du client.';
+
+  try{
+    const res = await fetch('https://api.anthropic.com/v1/messages',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({
+        model:'claude-sonnet-4-20250514',
+        max_tokens:900,
+        system:systemPrompt,
+        messages:chatHistory.slice(-20)
+      })
+    });
+    const data = await res.json();
+    hideTyping();
+    if(data.content && data.content[0] && data.content[0].text){
+      let reply = data.content[0].text.replace(/\*\*/g,'').replace(/\*/g,'');
+      reply = reply.replace(/\bMe Kouame/gi,'Mr Kouame');
+      chatHistory.push({role:'assistant', content:reply});
+      saveHistory(chatHistory);
+      // Détecter si la réponse mentionne un rendez-vous ou une vente
+      if(/rendez-vous|rdv|réservation/i.test(reply)) ayaStats.appointments.push(ayaMemory.userName||'Client');
+      if(/vendu|commande|achat|payé/i.test(reply)) ayaStats.sales.push(ayaMemory.userName||'Client');
+      saveStats(ayaStats);
+      addAIMsg(reply,'bot');
+      if(voiceEnabled) speak(reply);
+    } else {
+      useFallback(msg);
+    }
+  } catch(err){
+    hideTyping();
+    useFallback(msg);
+  }
+}
+
+// Fallback sans astérisques ni répétitions
+const AYA_KB = {
+  "tarif|prix|pack|coût|abonnement|forfait|offre|combien":"Nos packs commencent à deux mille francs CFA par mois avec le Starter pour un seul produit. Le Basic est à quatre mille, le Premium à neuf mille — c'est le plus demandé avec dix produits et une mise en avant sur les réseaux. Ensuite le Pro à quinze mille pour vingt produits, et le Business à trente mille pour quarante produits avec un agent dédié et des formations offertes. Lequel correspond à votre activité ?",
+  "déposer|publier|vendre|soumettre|ajouter|mettre en ligne|poster":"C'est simple. Vous remplissez le formulaire sur le site, vous recevez un code unique, vous l'envoyez à Mr Kouame Roger sur WhatsApp, l'admin vous retourne un code de validation, vous l'entrez sur le site et votre produit est en ligne sous vingt-quatre heures. Vous avez déjà un produit à publier ?",
+  "payer|paiement|wave|orange|money|régler":"Vous pouvez payer via Wave au 0170292408 ou Orange Money et Wave au 0799814557. Après le paiement, envoyez juste le reçu sur WhatsApp et votre pack est activé immédiatement.",
+  "contact|joindre|whatsapp|numéro|appel|équipe":"Mr Kouame Roger est disponible sur WhatsApp au 0170292408 ou 0799814557. L'équipe répond rapidement, même le weekend.",
+  "ia|intelligence|automatisation|chatbot|agent|bot|24h":"Imaginez votre business qui répond aux clients et prend des commandes automatiquement, même quand vous dormez. C'est ce que nos agents IA font pour vous. Votre activité tourne vingt-quatre heures sur vingt-quatre. Ça vous intéresse ?",
+  "service|offre|proposez|faites":"On propose la marketplace pour vendre vos produits, la création d'agents IA, la gestion des réseaux sociaux, les publicités Facebook et TikTok, les sites web et applications, les formations et le coaching business. Quelle est votre activité principale ?",
+  "formation|ebook|cours|apprendre|coaching":"Nous avons des formations gratuites sur l'entrepreneuriat, la vente WhatsApp, le marketing Instagram, l'IA pour les entreprises et la liberté financière. Tout est dans la section Formations du site.",
+  "fondateur|pdg|roger|kouame|directeur":"Wamarketrog est fondée par Mr Kouame Roger, présent en ligne depuis le 24 juin 2020. Expansion officielle depuis 2023.",
+  "adresse|localisation|bureau|yopougon|gagnoa|abidjan|bouaké|yamoussoukro":"Notre siège est à Abidjan, Yopougon, Quartier Palais de Justice. Nous avons aussi une antenne à Gagnoa, Quartier Barbe, et des présences à Yamoussoukro, San Pedro et Bouaké.",
+  "bonjour|salut|allô|hi|hello|bonsoir":"Bonjour, bienvenue sur Wamarketrog ! Je suis Aya. Comment puis-je vous aider aujourd'hui ?",
+  "merci|parfait|super|génial|excellent":"Avec plaisir ! Est-ce que ces informations vous conviennent ? Souhaitez-vous rester informé de nos nouveautés ?",
+  "valider|code|validation|activer":"Le processus est simple : soumettez votre produit, contactez Mr Kouame Roger sur WhatsApp, l'admin vous envoie un code de validation, et vous l'entrez dans la section 'Valider produit' du site. Votre produit sera immédiatement en ligne."
+};
+
+function useFallback(msg){
+  const m = msg.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+  for(const [keys,reply] of Object.entries(AYA_KB)){
+    if(keys.split('|').some(k=>m.includes(k))){
+      const name = ayaMemory.userName;
+      const r = name && name !== 'Mr Kouame' ? reply.replace(/\?$/, `, ${name} ?`) : reply;
+      chatHistory.push({role:'assistant', content:r});
+      saveHistory(chatHistory);
+      addAIMsg(r,'bot');
+      if(voiceEnabled) speak(r);
+      return;
+    }
+  }
+  const def = "Je n'ai pas la réponse exacte, mais Mr Kouame Roger peut vous aider directement sur WhatsApp au 0170292408. Souhaitez-vous que je vous y redirige ?";
+  chatHistory.push({role:'assistant', content:def});
+  saveHistory(chatHistory);
+  addAIMsg(def,'bot');
+  if(voiceEnabled) speak(def);
+}
+
+function sendQuick(msg){ document.getElementById('aiInputField').value=msg; sendAI(); }
+
+function clearAyaMemory(){
+  localStorage.removeItem(AYA_MEMORY_KEY);
+  localStorage.removeItem(AYA_HISTORY_KEY);
+  localStorage.removeItem(AYA_STATS_KEY);
+  ayaMemory={}; chatHistory=[]; ayaStats=loadStats(); nameAsked=false;
+  document.getElementById('aiMessages').innerHTML='';
+  ayaStarted=false;
+  showToast('Mémoire effacée');
+  toggleAI();
+}
+
+
